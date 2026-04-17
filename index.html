@@ -1,0 +1,287 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-color: black;
+}
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black; border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+img:active {
+  animation-name: spin;
+  -webkit-animation: spin 10s ease-in-out infinite;
+}
+@-webkit-keyframes spin
+{
+	0%
+	{
+		-webkit-transform: rotateZ(0deg);
+	}
+
+	100%
+	{
+		-webkit-transform: rotateZ(18000deg);
+	}
+}
+* {
+	image-rendering: pixelated;
+	image-rendering: optimizeSpeed;
+	font-family:mingliu;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.gallery__iframe {
+  width: 100%;
+  height: 50%;
+  object-fit: contain;
+  display: block;
+}
+#Me {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 60;
+}
+.gallery__img:hover {
+  width: 95%;
+  height: 95%;
+}
+.gallery__iframe:hover {
+  width: 95%;
+  height: 45%;
+}
+img.sticky {
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  z-index: 50;
+}
+</style>
+<html>
+<head>
+<title>Hey there</title>
+<link rel="icon" type="image/x-icon" href="/media/favicon.ico">
+</head>
+
+<body style="background-image:url('media/handb.gif');">
+<a id="Me"; href="https://x.com/vityhysa" target="_blank" style="filter: none;"><img src="media/me.png" style=";width:70px;height:70px;"></a>
+<img class="sticky" src="media/watermarkss.png" style=";width:20%;height:5%;margin-left:auto;margin-right:auto;display: block;">
+<p style="color:red; font-size:60px; background-color: black; text-align: center;">Welcome to my Library of Work</p>
+<p style="color:red; font-size:30px; background-color: black; text-align: center;">The Following will show Everything I've made/worked on.</p>
+<p style="color:red; font-size:30px; background-color: black; text-align: center;">There is probably alot more stuff I've worked on But I cannot seem to Remember any</p>
+<p style="color:red; font-size:30px; background-color: black; text-align: center;">Its a bunch of stupid Bullshit</p>
+<p style="color:magenta; font-size:40px; background-color: black; text-align: center;">! Seizure warning for Alot of them !</p>
+<p style="color:lime; font-size:70px; background-color: black; text-align: center;">ROBLOX</p>
+<div class="gallery">
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/77632962923565/TRAUMATIC-DESCENT"><img src="media/td.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">TRAUMATIC DESCENT</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/131697416746807/The-Museum"><img src="media/museum.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">The Museum</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/81099268327915/mihecraft"><img src="media/mihecraft.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">mihecraft</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/121957593913673/psycho-wrap"><img src="media/pw.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">psycho wrap</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/75315555493764/cruelty-wrap"><img src="media/cw.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">cruelty wrap</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/18898821933/lora-vr"><img src="media/lv.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">lora vr</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/18826643981/Squid-Game-Green-Light-Red-Light"><img src="media/rg.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">[NEW] Squid Game Green Light Red Light</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/18277328246/escape-the-rake-the-scary-the-rake-the-scary-the-r"><img src="media/rake.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">escape the rake the scary the rake the scary the r</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/18122804125/viewmodel-test-two-2"><img src="media/v2.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">viewmodel test two 2</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/17687420624/Awesome-viewmodel-test"><img src="media/v1.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Awesome viewmodel test</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/17622181349/funny-viewport-testing"><img src="media/viweport.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">funny viewport testing</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/17371890686/Squid-Game-Glass-Bridge"><img src="media/bridge.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">[NEW] Squid Game Glass Bridge</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/17190589207/eat-bodies-simulator"><img src="media/ebs.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">eat bodies simulator</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/14171136666/throw-garbage-into-the-garbage-bin-simulator"><img src="media/trash.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">throw garbage into the garbage bin simulator</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/11532037326/Horror-of-the-Destiny"><img src="media/destiny.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Horror of the Destiny (Horror Game)</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/10895616669/DOORS-But-AWESOME"><img src="media/doors.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">DOORS...But AWESOME!</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/10957342984/balance-x-mauling-simulation-crossover"><img src="media/bal.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">balance x mauling simulation crossover</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/10657115077/Mauling-Simulation"><img src="media/mac.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Mauling Simulation</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/17724045406/Scary-horro-game"><img src="media/shg.png" class="gallery__img"></a>
+	<div style="color:red; font-size:20px; background-color: black; text-align: center;">Scary horro game. [NEW]</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/72662936584904/CFrame-Animation-Player"><img src="media/cframe.png" class="gallery__img"></a>
+	<div style="color:red; font-size:20px; background-color: black; text-align: center;">CFrame Animation Player</div>
+  </figure>
+</div>
+<p style="color:cyan; font-size:40px; background-color: black; text-align: center;">CONTRIBUTION</p>
+<div class="gallery">
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/99440981602442/run-across-the-road-to-a-seven-eleven-and-win-711s"><img src="media/seven.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">run across the road to a seven eleven and win 711s</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/79841660219517/Business-Enterprise-Stocking-Marketing-Simulater"><img src="media/bus.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Business Enterprise Stocking Marketing Simulater</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://www.roblox.com/games/134527043760116/Squid-Game-Jump-Rope-Season-3"><img src="media/rope.png" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Squid Game Jump Rope Season 3 [NEW!]</div>
+  </figure>
+</div>
+<p style="color:lime; font-size:70px; background-color: black; text-align: center;">GMOD</p>
+<div class="gallery">
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3692187352"><img src="media/aoms.gif" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Afraid of Monsters: Source</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3160501796"><img src="media/lpt.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Lora Plush Toy SWEP</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3103711643"><img src="media/efl.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Escape From Lora [HORROR]</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3048661678"><img src="media/pd.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Pooping Dog Playermodel</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=2897812397"><img src="media/par.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Paranaphobia [HORROR]</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=2893176119"><img src="media/ff.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">[DrG] Funny Friend</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=2890049187"><img src="media/tc.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">The Chase [HORROR]</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=2888904862"><img src="media/ua.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Unnerving Anxiety. (HORROR)</div>
+  </figure>
+  <figure>
+    <a target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=2888551912"><img src="media/ax.jpg" class="gallery__img"></a>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Anxaphobia (Horror map)</div>
+  </figure>
+</div>
+<p style="color:lime; font-size:70px; background-color: black; text-align: center;">VIDEOS</p>
+<div class="gallery">
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/0SzyDSf6cZg"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">AFRAID OF MONSTERS || Новые секреты и теории спустя 19 лет</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/oJw1YoEJlIA"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">afraid of monsters edit</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/GhQeRX7ra8o"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Mistake-1 edit</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/OixBww8J_N4"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">TRAUMATIC DESCENT FULL OST</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/mxP5oepumNU"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">TD</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/InXd9vxm7T8"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">Tributes</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/vNm7W2vwlwc"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">roblox cough occurrence</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/meKIO0_WQEY"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">psycho patrol r edit</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/5Xu8UuT35OQ"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">cruelty squad edit</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/-S89gaYI0os"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">lora</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/xv8-Hpw9qwI"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">red bull can falling over and dying green screen for everyone to use</div>
+  </figure>
+  <figure>
+    <iframe class="gallery__iframe" src="https://www.youtube.com/embed/Yk4MHf_dvOA"></iframe>
+	<div style="color:cyan; font-size:20px; background-color: black; text-align: center;">funny friend theme song extended</div>
+  </figure>
+</div>
+
+<a target="_blank" href="https://web.archive.org/web/20260301052001/https://vityhysa.online/"><p style="color:white; font-size:15px; background-color: black; text-align: center;">OLD WEBSITE ARCHIVE (Thanks to whoever did it)</p></a>
+
+<script>
+console.log("%c Story Life", "font-size: 1000%; color:rgb(255, 0, 0)");
+console.log("%c Story Life", "font-size: 1000%; color:rgb(255, 0, 0)");
+console.log("%c Story Life", "font-size: 1000%; color:rgb(255, 0, 0)");
+</script> 
+
+</html>
