@@ -79,9 +79,11 @@ img.sticky {
   background-image:url('media/bginvert.png');
   color: black;
   text-align: center;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   font-size:20px;
+  pointer-events: none;
+  transform: translate(10%, 0%);
 }
 
 .tooltiptextME {
@@ -337,6 +339,17 @@ console.log("%c Story Life", "font-size: 1000%; color:rgb(255, 0, 0)");
         document.getElementById("randomtext").innerText = result;
     }
 	setInterval(() => {aaaaaaaa();}, 100);
+</script>
+<script>
+const things = document.getElementsByClassName('tooltiptext');
+
+window.addEventListener('mousemove', (e) => {
+  for (let i = 0; i < things.length; i++) {
+    things[i].style.left = e.clientX + 'px';
+    things[i].style.top = e.clientY + 'px';
+  };
+});
+
 </script> 
 
 </html>
