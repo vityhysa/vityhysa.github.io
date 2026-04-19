@@ -1,4 +1,12 @@
 <style>
+@font-face {
+  font-family: 'MINGLIU';
+  src: url('fonts/MINGLIU.woff') format('woff'),
+       url('fonts/MINGLIU.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+}
+
 html{scrollbar-color: red black}
 ::-webkit-scrollbar {
   width: 20px;
@@ -33,7 +41,10 @@ img:active {
 * {
     cursor: url('media/pointer.png'), auto;
 	image-rendering: pixelated;
-	font-family:mingliu;
+	font-family:MINGLIU;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
 }
 .gallery {
     display: grid;
