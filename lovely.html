@@ -1,0 +1,98 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+.face {
+  position: fixed;
+  z-index: 6;
+  pointer-events: none;
+  transform: translate(0%, 0%);
+}
+img {
+  pointer-events: none;
+}
+
+</style>
+
+<head>
+<title>Lovely</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<img class="face" src="media/sda.png" style=";width:150px;height:150px;">
+
+<body id="random" style="background-color:black;background-size: 50%;">
+
+<script>
+function check(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+const letters = 'abcdefghijklmnopqrstuvwxyz';
+setInterval(() => {
+let number = Math.floor(Math.random() * 100) + 1;
+let letter = letters[Math.floor(Math.random() * letters.length)];
+let urlink = `https://adriansblinkiecollection.neocities.org/${letter}${number}.gif`
+check(urlink).then(isValid => {
+  if (isValid) {
+	document.getElementById("random").style.backgroundImage = `url(${urlink})`;
+  }
+});
+}, 100);
+</script>
+
+<script>
+const haha = document.getElementsByClassName('face');
+
+window.addEventListener('mousemove', (e) => {;
+  setTimeout(() => {;
+  for (let i = 0; i < haha.length; i++) {;
+    setTimeout(() => {;
+    haha[i].style.left = e.clientX + 'px';
+	}, 200);
+	setTimeout(() => {;}, 50);
+    haha[i].style.top = e.clientY + 'px';
+  };
+  }, 500);
+});
+
+</script>
+<script>
+document.body.style.overflow = 'hidden';
+document.addEventListener('mousemove', function(e) {
+  const img = document.createElement('img');
+  img.src = 'media/pointer.png';
+ 
+  img.style.position = 'absolute';
+  img.style.left = e.pageX + 'px';
+  img.style.top = e.pageY + 'px';
+  
+  img.style.transform = 'translate(0%, 0%)';
+  
+  document.body.appendChild(img);
+});
+</script>

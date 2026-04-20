@@ -1,0 +1,74 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+	border: 1px dotted cyan;
+}
+.face {
+  position: fixed;
+  z-index: 6;
+  pointer-events: none;
+  transform: translate(0%, 0%);
+}
+</style>
+<head>
+<title>Cry</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<img class="face" src="media/sda.png" style=";width:150px;height:150px;">
+<body style="background-image:url('media/pointer.png');background-color:black;">
+<body>
+
+<button onclick="window.location.href='creepy.html';">Button</button>
+<div id="haha" style="color:cyan; font-size:20px;word-wrap: break-word;"></div>
+</body>
+<script>
+    function aaaaaaaa() {
+        const chars = '¡²³¤€¼½¾‘’¥×äåé®þüúíóö«»áßðø¶´¬æ©ñç¿ÄÄÅÉ®ÞÜÚÍÓÖ«»ÁßÐØ¶´¬Æ©ÑÇ¿¹£÷С2юX $Wb♫Ъm♥Db☼(©ҐAµ!6ђw=–¦ўaqєHќo75хTLыDEЈ{я Чаjj~©^PЩfRў‰[?+ `щ†OO5^‹{‘7ZxЈсS™?µЩ¦®)ўVЩЦXG‘E?ч”8 Bj"ЪЦ‚”єњ>ы4‡W=Ev7';
+        let result = '';
+        const length = 5
+
+        for (let i = 0; i < length; i++) {
+            const randoms = Math.floor(Math.random() * chars.length);
+            result += chars.charAt(randoms);
+        }
+        document.getElementById("haha").innerText += result;
+    }
+	setInterval(() => {aaaaaaaa();}, 50);
+</script>
+
+<script>
+const haha = document.getElementsByClassName('face');
+
+window.addEventListener('mousemove', (e) => {;
+  setTimeout(() => {;
+  for (let i = 0; i < haha.length; i++) {;
+    setTimeout(() => {;
+    haha[i].style.left = e.clientX + 'px';
+	}, 200);
+	setTimeout(() => {;}, 50);
+    haha[i].style.top = e.clientY + 'px';
+  };
+  }, 500);
+});
+
+</script>

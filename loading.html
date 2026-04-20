@@ -1,0 +1,101 @@
+<style>
+BODY
+{
+	overflow: hidden;
+	margin: 0px;
+}
+
+#container
+{
+	position: absolute;
+	text-align: center;
+	left: 50%;
+	top: 45%;
+	margin-top: -120px;
+	margin-left: -150px;
+	width: 300px;
+}
+
+#logo
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.25em;
+}
+
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+@-webkit-keyframes walk
+{
+	0%
+	{
+		-webkit-transform: rotateZ(0deg);
+	}
+
+	100%
+	{
+		-webkit-transform: rotateZ(360deg);
+	}
+}
+
+.walk
+{
+	-webkit-animation: walk 10s linear infinite;
+	text-align: center;
+	background-color: #fe7;
+	width: 24px;
+	height: 24px;
+	color: #999;
+	font-size: 16px;
+	font-family: arial, sans-serif;
+	font-weight: bold;
+	border-radius: 3px;
+	display: inline-block;
+	border: 2px solid #999;
+}
+
+#spambox
+{
+	float: right;
+	overflow: hidden;
+	max-height: 100%;
+}
+</style>
+<body style="background-image:url('media/bg.png');background-color:black;">
+<html>
+	<head>
+		<title>Loading..</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+	</head>
+	<body>
+
+		<div id="background">
+			<div id="container">
+
+				<img id="logo" src='media/gmod_logo_brave.png'/>
+				
+				<div>
+					<div class="walk">►║</div>
+				</div>
+
+			</div>
+
+			<div class="server_info">
+				<div class="text">
+					<a href="lovely.html" style="text-decoration: none; color: black;"><div>&lt;a href="lovely.html" style="text-decoration: none; color: black;"&gt;&lt;div&gt;&lt;/div&gt;&lt;/a&gt;</div></a>
+				</div>
+			</div>
+
+			<div id="spambox">
+			</div>
+
+		</div>
+	</body>
+</html>

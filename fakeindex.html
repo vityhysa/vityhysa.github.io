@@ -1,0 +1,383 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+@-webkit-keyframes spin
+{
+	0%
+	{
+		-webkit-transform: rotateZ(0deg);
+	}
+
+	100%
+	{
+		-webkit-transform: rotateZ(18000deg);
+	}
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  max-height: 200px;
+}
+.gallery__iframe {
+  width: 100%;
+  height: 60%;
+  object-fit: contain;
+  display: block;
+  max-height: 140px;
+}
+#Me {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 60;
+}
+.gallery__img:hover {
+  width: 93%;
+  height: 93%;
+}
+img.sticky {
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  z-index: 50;
+}
+
+.tooltip {
+}
+
+.tooltiptext {
+  visibility: hidden;
+  background-image:url('media/bginvert.png');
+  color: black;
+  text-align: center;
+  position: fixed;
+  z-index: 1;
+  font-size:20px;
+  pointer-events: none;
+  transform: translate(10%, 0%);
+}
+
+.tooltiptextME {
+  visibility: hidden;
+  background-image:url('media/bginvert.png');
+  color: black;
+  text-align: center;
+  position: fixed;
+  bottom: 45;
+  right: 70;
+  z-index: 100;
+  font-size:20px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltip:hover .tooltiptextME {
+  visibility: visible;
+}
+.containerimgbuttons {
+  display: flex;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes happyrainbowanim {
+  0% { color: #ff0000; }
+  20% { color: #ff8b00; }
+  40% { color: #e8ff00; }
+  60% { color: #5dff00; }
+  80% { color: #00b9ff; }
+  100% { color: #5d00ff; }
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+	animation-name: spin;
+    -webkit-animation: spin 120s ease-in-out infinite,happyrainbowanim 0.05s linear infinite alternate;
+}
+.face {
+  position: fixed;
+  z-index: 6;
+  pointer-events: none;
+  transform: translate(0%, 0%);
+}
+</style>
+<html>
+<head>
+<title>H3y there</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<img class="face" src="media/sda.png" style=";width:150px;height:150px;">
+
+<body style="background-image:url('media/face.png');">
+<div class="tooltip"><a id="Me"; target="_blank" style="filter: none;"><img src="media/me.png" style=";width:70px;height:70px;"></a><span class="tooltiptextME">PRESS ME</span></div>
+<a href="tonight.html" style="z-index: 999;position: relative;"><img class="sticky" src="media/watermarkss.png" style=";width:20%;height:5%;margin-left:auto;margin-right:auto;display: block;z-index: 7760;"></a>
+<h1 style="color:red; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</h1>
+<div style="color:white; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+<div style="color:white; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+<div style="color:white; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+<div class="happyrainbow" style="color:magenta; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+<h1 style="color:lime; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</h1>
+<div class="gallery">
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/td.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/museum.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/mihecraft.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/pw.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/cw.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/lv.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/rg.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/rake.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/v2.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/v1.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/viweport.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/bridge.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/ebs.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/trash.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/destiny.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/doors.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/bal.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/mac.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/shg.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:red; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/cframe.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:red; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+</div>
+<h1 style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</h1>
+<div class="gallery">
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/seven.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/bus.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/rope.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/drive.png" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+</div>
+<h1 style="color:lime; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</h1>
+<div class="gallery">
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/aoms.gif" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/lpt.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/efl.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/pd.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/par.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/ff.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/tc.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/ua.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><a target="_blank" ><img src="media/ax.jpg" class="gallery__img"></a><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+</div>
+<h1 style="color:lime; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</h1>
+<div class="gallery">
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+  <figure>
+    <div class="tooltip"><iframe class="gallery__iframe" ></iframe><span class="tooltiptext">PRESS ME</span></div>
+	<div style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</div>
+  </figure>
+</div>
+
+<div id="randomtext" style="color:cyan; font-size:20px; background-image:url('media/bg.png'); text-align: center;word-wrap: break-word;">PRESS ME</div>
+
+<a target="_blank" ><p style="color:white; font-size:15px; background-image:url('media/bg.png'); text-align: center;">PRESS ME</p></a>
+
+<script>
+setTimeout(() => {;
+window.scrollTo(0, document.body.scrollHeight);
+}, 10);
+setTimeout(() => {;
+window.scrollTo(0, document.body.scrollHeight);
+}, 10);
+</script>
+
+<script>
+const haha = document.getElementsByClassName('face');
+
+window.addEventListener('mousemove', (e) => {;
+  setTimeout(() => {;
+  for (let i = 0; i < haha.length; i++) {;
+    setTimeout(() => {;
+    haha[i].style.left = e.clientX + 'px';
+	}, 200);
+	setTimeout(() => {;}, 50);
+    haha[i].style.top = e.clientY + 'px';
+  };
+  }, 500);
+});
+
+</script>
+
+<script>
+document.addEventListener('mousemove', function(e) {
+  const img = document.createElement('img');
+  img.src = 'media/pointer.png';
+ 
+  img.style.position = 'absolute';
+  img.style.left = e.pageX + 'px';
+  img.style.top = e.pageY + 'px';
+  
+  img.style.transform = 'translate(0%, 0%)';
+  
+  document.body.appendChild(img);
+});
+</script>
+
+</html>
