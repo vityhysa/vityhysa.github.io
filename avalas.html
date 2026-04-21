@@ -87,6 +87,7 @@ upload.addEventListener('change', function() {
 	audio.playbackRate = document.getElementById("pitch").valueAsNumber/100;
 	document.documentElement.style.setProperty('--animation-speed', 16 - document.getElementById("pitch").valueAsNumber/100 + 's');
 	document.body.style.backgroundSize = document.getElementById("pitch").valueAsNumber/100 + '%';
+	audio.loop = true;
 	audio.play();
 	}, 100);
   }
