@@ -1,0 +1,70 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<head>
+<title>ASdsafaafa</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+</body>
+
+<script>
+function pos(element) {
+  element.style.position = 'absolute';
+  const sw = window.innerWidth;
+  const sh = window.innerHeight;
+  const ew = element.offsetWidth;
+  const eh = element.offsetHeight;
+  const ml = sw - ew;
+  const mt = sh - eh;
+  const rl = Math.floor(Math.random() * ml);
+  const rt = Math.floor(Math.random() * mt);
+
+  element.style.left = rl + 'px';
+  element.style.top = rt + 'px';
+}
+
+document.body.style.overflow = 'hidden';
+const tags = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'menu', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'search', 'section', 'select', 'slot', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 'svg', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr', 'acronym', 'applet', 'basefont', 'big', 'center', 'dir', 'font', 'frame', 'frameset', 'marquee', 'nobr', 'noembed', 'noframes', 'plaintext', 'strike', 'tt', 'xmp'];
+
+setInterval(() => {
+let randomtag = tags[Math.floor(Math.random() * tags.length)];
+let elements = document.createElement(randomtag);
+elements.textContent = `${randomtag}`;
+elements.style.color = "blue";
+elements.src = "media/pointer.png";
+if (elements.tagName === 'BUTTON') {
+   elements.onclick = function() {window.location.href='avalas.html';};
+}
+pos(elements)
+document.title = `${randomtag}`;
+document.body.appendChild(elements);
+}, 0);
+</script>

@@ -1,0 +1,116 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+	--animation-speed: 0s;
+	animation: shake var(--animation-speed);
+    animation-iteration-count: infinite;
+}
+img {
+  pointer-events: none;
+}
+input[type=range] {
+    -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: blue;
+  height: 66px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 66;
+  width: 66;
+  appearance: none;
+  background: lime;
+}
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-2px, 1px) rotate(0deg); }
+  20%, 40%, 60%, 80% { transform: translate(2px, -1px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+body {
+  overflow: hidden;
+}
+</style>
+
+<head>
+<title>ASdsafaafa</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-image:url('media/hey.png');background-color:black;background-size: 0%;">
+<body>
+<h1 style="font-size:20;color:red;text-align: center;">Select Audio Slaider Audio</h1>
+<input type="range" min="0" max="1600" value="100" class="slider" id="pitch" style="width:100%;">
+<input type="file" id="upload" accept="audio/*"><h1 style="font-size:20;color:red;display: inline-block;">Slelect audio</h1>
+<input type="checkbox" id="checkers"><h1 style="font-size:20;color:red;display: inline-block;">preservesPitch</h1>
+</body>
+
+<script>
+document.body.classList.add('shake');
+const upload = document.getElementById('upload');
+let audio = ''
+upload.addEventListener('change', function() {
+  const file = this.files[0];
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  };
+  if (file) {
+	setTimeout(() => {
+	audio = new Audio(URL.createObjectURL(file));
+	if (document.getElementById("checkers").checked) {
+	audio.preservesPitch = true;
+	} else {
+	audio.preservesPitch = false;
+	};
+	audio.playbackRate = document.getElementById("pitch").valueAsNumber/100;
+	document.documentElement.style.setProperty('--animation-speed', 16 - document.getElementById("pitch").valueAsNumber/100 + 's');
+	document.body.style.backgroundSize = document.getElementById("pitch").valueAsNumber/100 + '%';
+	audio.play();
+	}, 100);
+  }
+});
+  
+const slider = document.getElementById("pitch");
+
+slider.addEventListener("input", (event) => {
+    if (audio) {
+    audio.playbackRate = event.target.value/100
+	document.documentElement.style.setProperty('--animation-speed', 16 - event.target.value/100 + 's');
+	document.body.style.backgroundSize = event.target.value/100 + '%';
+	}
+});
+
+document.getElementById("checkers").addEventListener("change", function() {
+    if (this.checked) {
+      if (audio) {
+        audio.preservesPitch = true;
+      };
+    } else {
+	  if (audio) {
+        audio.preservesPitch = false;
+      };
+	}
+});
+</script>
