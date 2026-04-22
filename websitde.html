@@ -1,0 +1,82 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<body style="background-color:black">
+
+<head>
+<title>websiste</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+<canvas style="width:100%;height:100%;">
+</body>
+
+<script>
+const elem = document.documentElement;
+
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+}
+
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+const video = document.createElement('video');
+video.src = 'media/edits2.mp4';
+video.play();
+window.scrollTo(0, 0);
+openFullscreen();
+
+function render() {
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  if (!video.paused && !video.ended) {
+    requestAnimationFrame(render);
+  }
+}
+
+document.addEventListener("click", (event) => {
+    video.play();
+	openFullscreen();
+	window.scrollTo(0, 0);
+});
+
+video.addEventListener('play', () => {
+  render();
+  openFullscreen();
+});
+video.addEventListener('ended', () => {
+  window.location.href='loading.html';
+});
+</script>
