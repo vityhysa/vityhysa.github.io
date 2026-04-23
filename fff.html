@@ -1,0 +1,150 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<head>
+<title>FFF</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-color:blue;">
+<body>
+<canvas id="canvas" style="width:100%;height:100%;"></canvas>
+</body>
+
+<script>
+const img = new Image();
+img.src = 'media/f1.png';
+const img2 = new Image();
+img2.src = 'media/f2.png';
+const img3 = new Image();
+img3.src = 'media/f3.jpg';
+const img4 = new Image();
+img4.src = 'media/f4.jpg';
+const img5 = new Image();
+img5.src = 'media/f5.jpg';
+const img6 = new Image();
+img6.src = 'media/f6.jpg';
+const img7 = new Image();
+img7.src = 'media/f7.png';
+const img8 = new Image();
+img8.src = 'media/f8.png';
+const img9 = new Image();
+img9.src = 'media/f9.png';
+const img10 = new Image();
+img10.src = 'media/f10.png';
+
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    width = document.querySelector('canvas').width,
+    height = document.querySelector('canvas').height;
+
+var meltCan = document.createElement("canvas"),
+    meltCtx = meltCan.getContext("2d"),
+    images = [img,img2,img3,img4,img5,img6,img7,img8,img9,img10],
+    bgImage = 1,
+    meltImage = 0,
+    settings = {
+      colSize : 2,
+      maxDev : 15,
+      maxDiff : 15,
+      fallSpeed : 0.5,
+    },
+    columns = width / settings.colSize,
+    y = [],
+    done = true;
+	
+meltCan.width = document.querySelector('canvas').width;
+meltCan.height = document.querySelector('canvas').height;	
+
+function init() {
+    meltCtx.drawImage(images[meltImage],0,0,document.querySelector('canvas').width,document.querySelector('canvas').height);
+    for (var x = 0; x < columns; x++) {
+        if (x === 0) {
+            y[x] = -Math.floor(Math.random() * settings.maxDev);
+        } else {
+            y[x] = y[x - 1] + (Math.floor(Math.random() * settings.maxDiff) - settings.maxDiff / 2);
+        }
+        if (y[x] > 0) {
+            y[x] = 0;
+        } else if (y[x] < -settings.maxDev) {
+            y[x] = -settings.maxDev;
+        }
+    }
+
+}
+
+var col = 0,
+    yPos = 0;
+
+function doMelt() {
+    ctx.drawImage(images[bgImage],0,0,document.querySelector('canvas').width,document.querySelector('canvas').height);
+    done = true;
+    
+    for (col = 0; col < columns; col++) {
+        y[col] += settings.fallSpeed;
+
+        if (y[col] < 0 ) {
+            done = false;
+            yPos = 0;
+        }else if(y[col] < height){
+            done = false;
+            yPos = y[col];
+        }
+          
+        ctx.drawImage(meltCan, col * settings.colSize, 0, settings.colSize, height, col * settings.colSize, yPos, settings.colSize, height);
+    }
+    
+    if(done){
+        var swap = meltImage;
+        meltImage = bgImage;
+        bgImage = swap+2;
+		if (bgImage === 10) {
+		meltImage = 0
+		bgImage = 1
+		swap = 0
+		}
+		bgImage = swap+1;
+        init();
+    }
+    requestAnimationFrame(doMelt);
+}
+
+const audio = new Audio('media/port.mp3');
+audio.loop = true;
+audio.preservesPitch = false;
+audio.play();
+audio.playbackRate = 1.5;
+document.addEventListener("click", (event) => {
+    audio.play();
+});
+
+img.onload = function () {
+    init();
+    doMelt();
+}
+</script>
