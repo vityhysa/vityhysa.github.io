@@ -31,7 +31,7 @@ img {
 <title>FFF</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body style="background-color:blue;">
+<body style="background-color:black;">
 <body>
 <canvas id="canvas" style="width:100%;height:100%;"></canvas>
 </body>
@@ -60,8 +60,11 @@ img10.src = 'media/f10.png';
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
-    width = document.querySelector('canvas').width,
-    height = document.querySelector('canvas').height;
+    width = 1920,
+    height = 1080;
+	
+canvas.width = 1920;
+canvas.height = 1080;
 
 var meltCan = document.createElement("canvas"),
     meltCtx = meltCan.getContext("2d"),
@@ -69,10 +72,10 @@ var meltCan = document.createElement("canvas"),
     bgImage = 1,
     meltImage = 0,
     settings = {
-      colSize : 2,
-      maxDev : 15,
-      maxDiff : 15,
-      fallSpeed : 0.5,
+      colSize : 15,
+      maxDev : 350,
+      maxDiff : 100,
+      fallSpeed : 3,
     },
     columns = width / settings.colSize,
     y = [],

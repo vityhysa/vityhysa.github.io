@@ -52,6 +52,10 @@ function openFullscreen() {
 }
 
 const canvas = document.querySelector('canvas');
+
+canvas.width = 1920;
+canvas.height = 1080;
+
 const ctx = canvas.getContext('2d');
 const video = document.createElement('video');
 video.src = 'media/edits2.mp4';

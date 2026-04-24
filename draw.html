@@ -1,0 +1,81 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.png');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.png');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.png'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.png'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<head>
+<title>PAint</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+<h1 style="font-size:20;color:red;word-wrap: break-word;position:absolute;">PAint.net</h1>
+<canvas id="canvas" style="width:100%;height:100%;"></canvas>
+</body>
+
+<script>
+const canvas = document.getElementById('canvas');
+canvas.width = 1920;
+canvas.height = 1080;
+const ctx = canvas.getContext('2d');
+let drawing = false;
+let lastX = 0;
+let lastY = 0;
+
+function getpos(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (e.clientX - rect.left) * canvas.width / rect.width,
+    y: (e.clientY - rect.top) * canvas.height / rect.height
+  };
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  drawing = true;
+  const { x, y } = getpos(e);
+  [lastX, lastY] = [x, y];
+});
+
+canvas.addEventListener('mousemove', (e) => {
+  if (!drawing) return;
+  const { x, y } = getpos(e);
+  
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(x*1.1, y*1.1);
+  ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'square';
+  ctx.stroke();
+  const audio = new Audio('media/Hardcore_kick.wav');
+  audio.play();
+  
+  [lastX, lastY] = [x, y];
+});
+
+canvas.addEventListener('mouseup', () => drawing = false);
+</script>
