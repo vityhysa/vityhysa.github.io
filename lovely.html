@@ -2,20 +2,20 @@
 html{scrollbar-color: red black}
 ::-webkit-scrollbar {
   width: 20px;
-    background-image:url('media/bg.png');
+    background-image:url('media/bg.webp');
 }
 ::-webkit-scrollbar-track {
-  background-image:url('media/bg.png');
+  background-image:url('media/bg.webp');
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image:url('media/bg.png'); border: solid 1px red;
+  background-image:url('media/bg.webp'); border: solid 1px red;
 }
 ::-webkit-scrollbar-thumb:hover {
   border: solid 1px cyan;
 }
 * {
-    cursor: url('media/pointer.png'), auto;
+    cursor: url('media/pointer.webp'), auto;
 	image-rendering: pixelated;
 	font-family:mingliu;
 	-webkit-font-smoothing: none;
@@ -39,7 +39,7 @@ img {
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
-<img class="face" src="media/sda.png" style=";width:150px;height:150px;">
+<img class="face" src="media/sda.webp" style=";width:150px;height:150px;">
 
 <body id="random" style="background-color:black;background-size: 50%;">
 
@@ -85,7 +85,7 @@ window.addEventListener('mousemove', (e) => {;
 document.body.style.overflow = 'hidden';
 document.addEventListener('mousemove', function(e) {
   const img = document.createElement('img');
-  img.src = 'media/pointer.png';
+  img.src = 'media/pointer.webp';
  
   img.style.position = 'absolute';
   img.style.left = e.pageX + 'px';
