@@ -1,0 +1,74 @@
+<style>
+  html {
+    scrollbar-color: red black
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+    background-image: url('media/bg.webp');
+  }
+
+  ::-webkit-scrollbar-track {
+    background-image: url('media/bg.webp');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-image: url('media/bg.webp');
+    border: solid 1px red;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: solid 1px cyan;
+  }
+
+  * {
+    cursor: url('media/pointer.webp'), auto;
+    image-rendering: pixelated;
+    font-family: mingliu;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    text-rendering: optimizeSpeed;
+  }
+
+  img {
+    pointer-events: none;
+  }
+</style>
+
+<head>
+  <title>My Story</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<script>
+  window.oncontextmenu = () => false;
+  let aWindow = null;
+
+  function doit() {
+    while (
+      (aWindow = window.open('eyeseeu.html', '_blank', 'menubar=no, status=no, toolbar=no, resizable=no, width=640, height=280, titlebar=no, alwaysRaised=yes')) === null
+    ) {
+      if (!confirm("ENABLE POPUPS"))
+        return false;
+    }
+
+    return true;
+  }
+  function plays() {
+    const audio = new Audio('media/coolsong.mp3');
+    audio.loop = true;
+    audio.play();
+    document.body.style.backgroundImage = "url('media/eyesies2.webp')";
+    document.getElementById("sd").remove();
+    document.getElementById("sd1").remove();
+    document.title = "SEEU";
+    setInterval(doit, 800);
+  }
+</script>
+
+<body>
+  <h1 id="sd">My Cool Page</h1>
+  <p id="sd1">Story of My Twisted Dark Terrific Nightmare: Once upon a time...<a href="javascript:plays();">READ
+      MORE</a></p>
+
+</body>
