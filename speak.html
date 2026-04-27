@@ -1,0 +1,115 @@
+<style>
+  html {
+    scrollbar-color: red black
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+    background-image: url('media/bg.webp');
+  }
+
+  ::-webkit-scrollbar-track {
+    background-image: url('media/bg.webp');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-image: url('media/bg.webp');
+    border: solid 1px red;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: solid 1px cyan;
+  }
+
+  * {
+    cursor: url('media/pointer.webp'), auto;
+    image-rendering: pixelated;
+    font-family: mingliu;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    text-rendering: optimizeSpeed;
+  }
+
+  img {
+    pointer-events: none;
+  }
+</style>
+
+<body style="background-image:url('media/eyesies.webp');background-color:black;"></body>
+
+<head>
+  <title>Speaker</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+  <input type="range" id="speed" min="1" max="100" value="10">
+  <div style="color:red;">Speed</div>
+  <input type="range" id="pitch" min="0" max="20" value="10">
+  <div style="color:red;">pitch</div>
+  <input type="range" id="volume" min="0" max="10" value="10">
+  <div style="color:red;">Volumre</div>
+  <input type="text" id="themsg" name="message" placeholder="Type msg">
+  <div style="color:red;">Typemessage</div>
+  <select id="voiceSelect"></select>
+  <div style="color:red;">Voice Selecter</div>
+  <button onclick="talk(document.getElementById('themsg').value);">Click Me</button>
+  <div style="color:red;">Play</div>
+  <div id="mesageslol" style="font-size: 150px;color:red; word-wrap: break-word;"></div>
+</body>
+
+<script>
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
+  async function typewrite(element, text, cooldown) {
+    for (let char of text) {
+      element.innerHTML += char;
+      await delay(cooldown);
+    }
+  }
+
+  let voices = [];
+  const selectors = document.getElementById('voiceSelect');
+  const synth = window.speechSynthesis;
+  function listupdate() {
+    voices = synth.getVoices();
+
+    selectors.innerHTML = '';
+
+    voices.forEach((voice, i) => {
+      const option = document.createElement('option');
+      option.textContent = `${voice.name} (${voice.lang})`;
+
+      if (voice.default) {
+        option.textContent += ' - Defautl';
+      }
+
+      option.setAttribute('data-lang', voice.lang);
+      option.setAttribute('data-name', voice.name);
+      selectors.appendChild(option);
+    });
+  }
+
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = listupdate;
+  }
+
+  listupdate();
+
+  function talk(mesage) {
+    document.getElementById("mesageslol").innerHTML = '';
+    typewrite(document.getElementById("mesageslol"),mesage,50);
+    document.documentElement.style.filter = "invert(100%)";
+    const msg = new SpeechSynthesisUtterance(mesage);
+    msg.rate = document.getElementById("speed").value / 10;
+    msg.pitch = document.getElementById("pitch").value / 10;
+    msg.volume = document.getElementById("volume").value / 10;
+    msg.voice = voices.find(v => v.name === selectors.selectedOptions[0].getAttribute('data-name'));
+
+    msg.onend = (event) => {
+      document.documentElement.style.filter = "invert(0%)";
+    };
+
+    window.speechSynthesis.speak(msg);
+  }
+</script>
