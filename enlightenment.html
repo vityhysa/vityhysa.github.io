@@ -1,0 +1,216 @@
+<style>
+  html {
+    scrollbar-color: red black
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px;
+    background-image: url('media/bg.webp');
+  }
+
+  ::-webkit-scrollbar-track {
+    background-image: url('media/bg.webp');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-image: url('media/bg.webp');
+    border: solid 1px red;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: solid 1px cyan;
+  }
+
+  * {
+    cursor: url('media/pointer.webp'), auto;
+    image-rendering: pixelated;
+    font-family: mingliu;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    text-rendering: optimizeSpeed;
+  }
+
+  img {
+    pointer-events: none;
+  }
+
+  .animated-text span {
+    display: inline-block;
+    animation: bounce 1s infinite alternate, happyrainbowanim 3s infinite alternate;
+    animation-delay: calc(0.05s * var(--i));
+  }
+
+  @keyframes bounce {
+    to {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes happyrainbowanim {
+    0% {
+      color: #ff0000;
+    }
+
+    20% {
+      color: #ff8b00;
+    }
+
+    40% {
+      color: #e8ff00;
+    }
+
+    60% {
+      color: #5dff00;
+    }
+
+    80% {
+      color: #00b9ff;
+    }
+
+    100% {
+      color: #5d00ff;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container2 {
+    display: grid;
+    height: 100vh;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+</style>
+
+<body style="background-image:url('media/bganim.webp');background-color:black;"></body>
+
+<head>
+  <title>vivement.fr</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+  <img style="position: absolute;" id="smiley" src="media/Smiley.svg" width="300" height="300">
+  <div class="container2">
+    <h1 class="container" style="font-size:20px;font-weight: 900;z-index:5; color: white;">In the darkness as I cry, I
+      PRAY... - </h1>
+    <div
+      style="font-size:50px;font-weight: 900;z-index:5;-webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;"
+      class="animated-text container">
+      <a style="text-decoration: none; color: black;" href="javascript:opensite();"><span style="--i:0">"</span><span
+          style="--i:1">E</span><span style="--i:2">N</span><span style="--i:3">L</span><span
+          style="--i:4">I</span><span style="--i:5">G</span><span style="--i:6">H</span><span
+          style="--i:7">T</span><span style="--i:8">E</span><span style="--i:9">N</span><span
+          style="--i:10">&nbsp;</span><span style="--i:11">M</span><span style="--i:12">E</span><span
+          style="--i:13">&nbsp;</span><span style="--i:14">W</span><span style="--i:15">I</span><span
+          style="--i:16">T</span><span style="--i:17">H</span><span style="--i:18">&nbsp;</span><span
+          style="--i:19">A</span><span style="--i:20">&nbsp;</span><span style="--i:21">S</span><span
+          style="--i:22">P</span><span style="--i:23">E</span><span style="--i:24">C</span><span
+          style="--i:25">I</span><span style="--i:26">A</span><span style="--i:28">L</span><span
+          style="--i:29">&nbsp;</span><span style="--i:30">P</span><span style="--i:31">L</span><span
+          style="--i:32">A</span><span style="--i:33">C</span><span style="--i:34">E</span><span
+          style="--i:35">"</span></a>
+    </div>
+    <h1 class="container" style="font-size:20px;font-weight: 900;z-index:5; color: white;">; Then I was heard...</h1>
+  </div>
+</body>
+
+<script>
+  document.body.style.overflow = 'hidden';
+  window.oncontextmenu = () => false;
+  const element = document.getElementById('smiley');
+  let x = 0;
+  let x1 = 0;
+  function opensite() {
+    const audio = new Audio('media/coolclick.ogg');
+    audio.play();
+    window.open(sites[Math.floor(Math.random() * sites.length)])
+  }
+  function clonesm(coolness) {
+    const img = document.createElement('img');
+    img.src = coolness.src
+
+    img.width = coolness.width
+    img.height = coolness.height
+
+    img.style.position = 'absolute';
+    img.style.left = coolness.style.left;
+    img.style.top = coolness.style.top;
+
+    img.style.transform = 'translate(0%, 0%)';
+    setTimeout(() => {
+      img.className += 'fade-out'
+    }, 0);
+
+    document.body.appendChild(img);
+
+    setTimeout(() => {
+      img.remove();
+    }, 200);
+  }
+  function animate() {
+    x += 2
+    x1 += 1
+    const xx = Math.sin(x1 * 0.01) * 550 + (window.innerWidth / 2) - 100;
+    const y = Math.sin(x * 0.01) * 200 + (window.innerHeight / 2) - 100;
+    element.style.left = xx + 'px';
+    element.style.top = y + 'px';
+    if (x > window.innerWidth) x = 0;
+    requestAnimationFrame(animate);
+    clonesm(element)
+  }
+
+  animate();
+  // If you See this You are the Lamest person ever
+  // If you See this You are the Lamest person ever
+  // If you See this You are the Lamest person ever
+  // If you See this You are the Lamest person ever
+  // If you See this You are the Lamest person ever
+  // If you See this You are the Lamest person ever
+  // If you See this You are the Lamest person ever
+  const sites = [
+    "404.html",
+    "avalas.html",
+    "creepy.html",
+    "cry.html",
+    "draw.html",
+    "enlightenment.html",
+    "eyedontseeu.html",
+    "eyeseeu.html",
+    "fakeindex.html",
+    "fff.html",
+    "hey.html",
+    "index.html",
+    "interact.html",
+    "loading.html",
+    "lovely.html",
+    "nocss.html",
+    "palodotora.html",
+    "saxbit.html",
+    "sdds.html",
+    "speak.html",
+    "template.html",
+    "tonight.html",
+    "websitde.html",
+    "favicon.ico",
+  ];
+</script>
+
+<script>
+const audio = new Audio('media/froz.mp3');
+audio.loop = true;
+audio.play();
+window.scrollTo(0, 0);
+document.addEventListener("click", (event) => {
+    audio.loop = true;
+    audio.play();
+	  window.scrollTo(0, 0);
+});
+</script>
