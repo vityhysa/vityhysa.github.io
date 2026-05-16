@@ -1,0 +1,42 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.webp');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.webp');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.webp'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.webp'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<head>
+<title>Talkerings</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-color:black;">
+<body>
+<iframe src="https://vityhysa.atabook.org" width="100%" height="100%" frameborder="0" scrolling="yes"></iframe>
+</body>
+
+<script>
+  document.body.style.overflow = 'hidden';
+  window.oncontextmenu = () => false;
+</script>
