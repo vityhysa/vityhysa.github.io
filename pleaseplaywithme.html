@@ -1,0 +1,137 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.webp');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.webp');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.webp'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.webp'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<head>
+<title>Please play with me</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-image:url('media/CREDIT.webp');background-color:black;">
+<body>
+<canvas id="pong" style="width:100%;height:100%;" width="640"  height="480"></canvas>
+</body>
+
+<script>
+window.oncontextmenu = () => false;
+document.body.style.overflow = 'hidden';
+const canvas = document.getElementById("pong");
+const ctx = canvas.getContext("2d");
+const ball = { x: 300, y: 200, dx: 10, dy: 10, radius: 10 };
+const paddleWidth = 10, paddleHeight = 100;
+const user = { x: 0, y: 150, score: 0 };
+const ai = { x: canvas.width - paddleWidth, y: 150, score: 0 };
+const img = new Image();
+canvas.addEventListener("mousemove", (e) => {
+    let rect = canvas.getBoundingClientRect();
+    user.y = (e.clientY - rect.top) * (canvas.height / rect.height) - 50;
+});
+
+function draw() {
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#FF0000";
+    ctx.font = "20px MingliU";
+	
+	if (user.score >= 1) {
+    ctx.fillText(user.score + " You are so much better than me", canvas.width/4, 50);
+	} else {
+	ctx.fillText(user.score, canvas.width/4, 50);
+	}
+	
+	ctx.fillText(ai.score, 3*canvas.width/4, 50);
+	
+	ctx.fillText("You, You are playing with Me", canvas.width/9, 80);
+	ctx.fillText("Me", 3.3*canvas.width/4, 50);
+
+	ctx.fillStyle = "#0000FF";
+    ctx.fillRect(user.x, user.y, paddleWidth, paddleHeight);
+    ctx.fillRect(ai.x, ai.y, paddleWidth, paddleHeight);
+    ctx.beginPath();
+	ctx.fillStyle = "#00FF00";
+	img.onload = function() {
+    ctx.drawImage(img, ball.x - ball.radius, ball.y - ball.radius, ball.radius * 2, ball.radius * 3);
+	};
+	ctx.drawImage(img, ball.x - ball.radius, ball.y - ball.radius, ball.radius * 2, ball.radius * 3);
+    ctx.fill();
+}
+
+img.src = 'media/ball.png';
+
+function update() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+        ball.dy *= -1;
+    }
+
+    ai.y += (ball.y - (ai.y + paddleHeight/2)) * 0.06;
+
+    let player = (ball.x < canvas.width/2) ? user : ai;
+    if (collision(ball, player)) {
+        ball.dx *= -1;
+    }
+
+    if (ball.x - ball.radius < 0) {
+        ai.score++;
+        resetBall();
+    } else if (ball.x + ball.radius > canvas.width) {
+        user.score++;
+        resetBall();
+    }
+}
+
+function collision(b, p) {
+    return b.x + b.radius > p.x && b.x - b.radius < p.x + paddleWidth &&
+           b.y + b.radius > p.y && b.y - b.radius < p.y + paddleHeight;
+}
+
+function resetBall() {
+    ball.x = canvas.width/2;
+    ball.y = canvas.height/2;
+    ball.dx *= -1;
+}
+
+function game() {
+    update();
+    draw();
+    setTimeout(() => {requestAnimationFrame(game);}, 500 / 5);
+}
+game();
+
+const audio = new Audio('media/playwith.mp3');
+audio.loop = true;
+audio.play();
+window.scrollTo(0, 0);
+document.addEventListener("click", (event) => {
+    audio.loop = true;
+    audio.play();
+	window.scrollTo(0, 0);
+});
+</script>
