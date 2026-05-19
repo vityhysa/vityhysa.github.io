@@ -63,6 +63,12 @@ img:active {
   right: 0;
   z-index: 60;
 }
+#Talk {
+  position: fixed;
+  bottom: 70;
+  right: 0;
+  z-index: 60;
+}
 .gallery__img:hover {
   width: 93%;
   height: 93%;
@@ -95,16 +101,29 @@ img.sticky {
   color: black;
   text-align: center;
   position: fixed;
-  bottom: 45;
+  bottom: 46;
   right: 70;
   z-index: 100;
   font-size:20px;
 }
-
+.Talktip {
+  visibility: hidden;
+  background-image:url('media/bginvert.webp');
+  color: black;
+  text-align: center;
+  position: fixed;
+  bottom: 116;
+  right: 70;
+  z-index: 100;
+  font-size:20px;
+}
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 .tooltip:hover .tooltiptextME {
+  visibility: visible;
+}
+.tooltip:hover .Talktip {
   visibility: visible;
 }
 .containerimgbuttons {
@@ -139,6 +158,7 @@ img.sticky {
 </head>
 
 <body style="background-image:url('media/handb.webp');">
+<div class="tooltip"><a id="Talk"; href="talkerings.html" target="_blank" style="filter: none;"><img src="media/face.webp" style=";width:70px;height:70px;"></a><span class="Talktip">Talk to Me &lt;3</span></div>
 <div class="tooltip"><a id="Me"; href="https://x.com/vityhysa" target="_blank" style="filter: none;"><img src="media/me.webp" style=";width:70px;height:70px;"></a><span class="tooltiptextME">Twitter</span></div>
 <img class="sticky" src="media/watermarkss.webp" style=";width:20%;height:5%;margin-left:auto;margin-right:auto;display: block;">
 <div class="containerimgbuttons">
@@ -147,8 +167,7 @@ img.sticky {
 </div>
 <h1 style="color:red; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">Welcome to my Library of Work</h1>
 <div style="color:white; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">The Following will show Everything I've made/worked on.</div>
-<div style="color:white; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">There is probably alot more stuff I've worked on But I cannot seem to Remember any</div>
-<div style="color:white; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">Its a bunch of stupid Bullshit</div>
+<div style="color:white; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">There is probably alot more stuff I've worked on But I cannot seem to Remember any.</div>
 <div class="happyrainbow" style="color:magenta; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">! Seizure warning for Alot of them (Including this Website) !</div>
 <h1 style="color:lime; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">ROBLOX</h1>
 <div class="gallery">
