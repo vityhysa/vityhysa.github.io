@@ -1,0 +1,106 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.webp');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.webp');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.webp'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.webp'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+#contain {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.thing {
+    position: absolute;
+    width: 100px; 
+    height: auto;
+    will-change: transform;
+}
+</style>
+
+<head>
+<title>Let me Kiss you Tonight</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-image:url('media/paimts.webp');background-color:white;">
+<body>
+<marquee style="font-size:60px;color:blue;position:absolute;">Oh hey Let's love</marquee>
+<marquee direction="right" style="font-size:60px;color:blue;position:absolute;bottom: 0;">Haha!</marquee>
+<div id="contain"></div>
+</body>
+
+<script>
+document.body.style.overflow = 'hidden';
+window.oncontextmenu = () => false;
+const container = document.getElementById('contain');
+const imagess = ['media/dance.webp', 'media/ball.png', 'media/Smiley.svg', 'media/smilyyuk.png', 'media/cryidiot.webp', 'media/paimts.webp', 'media/gif.webp', 'media/mojis.webp', 'media/fun.webp', 'media/g1.webp', 'media/g2.webp', 'media/g3.webp', 'media/g4.webp', 'media/g5.webp'];
+
+function spawn() {
+  const lololo = document.createElement('img');
+  lololo.src = imagess[Math.floor(Math.random() * imagess.length)];;
+  lololo.classList.add('thing');
+  const startx = Math.random() * window.innerWidth;
+  let y = -60;
+  let speed = 2 + Math.random() * 3; 
+  let angle = Math.random() * Math.PI * 2;
+  let frequency = 0.005 + Math.random() * 0.001;
+  
+  container.appendChild(lololo);
+  
+  function animate() {
+    y += speed;
+    const xoffset = Math.cos(y * frequency + angle) * 100;
+    const currentX = startx + xoffset;
+    lololo.style.transform = `translate(${currentX}px, ${y}px)`;
+
+    if (y > window.innerHeight + 50) {
+      lololo.remove();
+      spawn();
+    } else {
+      requestAnimationFrame(animate);
+    }
+  }
+  animate();
+}
+setInterval(() => {spawn();}, 650);
+</script>
+
+<script>
+let delta = 0;
+setInterval(() => {
+  delta = (delta + 1) % 360;
+  document.documentElement.style.filter = `hue-rotate(${delta}deg)`;
+}, 50);
+</script>
+
+<script>
+const audio = new Audio('media/Myself.mp3');
+audio.loop = true;
+audio.play();
+window.scrollTo(0, 0);
+document.addEventListener("click", (event) => {
+    audio.loop = true;
+    audio.play();
+	window.scrollTo(0, 0);
+});
+</script>
