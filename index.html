@@ -172,7 +172,8 @@ img.sticky {
 <div class="happyrainbow" style="color:magenta; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">! Seizure warning for Alot of them (Including this Website) !</div>
 <div>
 <h1 style="color:white; font-size:16px; background-image:url('media/bg.webp'); text-align: center;">Want to add my Button to your Page? Use this Code Snippet.</h1>
-<textarea readonly style="outline: none; text-align: center;font-size:16px;background-image:url('media/bginvert.webp');color:black;border: 0px solid;width:492px;height:64px;margin-left:auto;margin-right:auto;display: block;resize: none;" onclick="this.focus();this.select()">&lt;a href="https://vityhysa.github.io/" target="_blank"&gt;&lt;img src="https://vityhysa.github.io/media/imgbutton.png" style="width: 88px; height: 31px;"&gt;&lt;/a&gt;</textarea>
+<button id="tugglebutton" onclick="toggle()" style="background-color: black;color: white; font-size:100%;margin-left:auto;margin-right:auto;display: block;">Show</button>
+<textarea id="Imgbuttonscript" readonly style="outline: none; text-align: center;font-size:16px;background-image:url('media/bginvert.webp');color:black;border: 0px solid;width:492px;height:64px;margin-left:auto;margin-right:auto;display: none;resize: none;" onclick="this.focus();this.select()">&lt;a href="https://vityhysa.github.io/" target="_blank"&gt;&lt;img src="https://vityhysa.github.io/media/imgbutton.png" style="width: 88px; height: 31px;"&gt;&lt;/a&gt;</textarea>
 </div>
 <h1 style="color:lime; font-size:20px; background-image:url('media/bg.webp'); text-align: center;">ROBLOX</h1>
 <div class="gallery">
@@ -400,6 +401,19 @@ window.addEventListener('mousemove', (e) => {
   };
 });
 
+</script>
+<script>
+function toggle() {
+  const textareathing = document.getElementById("Imgbuttonscript");
+  const btn = document.getElementById("tugglebutton");
+  if (textareathing.style.display === "none") {
+    textareathing.style.display = "block";
+	btn.textContent = "Hide"; 
+  } else {
+    textareathing.style.display = "none";
+	btn.textContent = "Show"; 
+  }
+}
 </script> 
 
 </html>
