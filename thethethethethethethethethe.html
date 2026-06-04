@@ -1,0 +1,100 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.webp');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.webp');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.webp'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.webp'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+img {
+  pointer-events: none;
+}
+</style>
+
+<head>
+<title>TheTheTheTheTheTheTheTheTheTheTheTheTheTheThe</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="background-image:url('media/dance.webp');background-color:white;">
+<body>
+<div style="position:absolute;">
+<div style="font-size:20px;color:lime;background-image:url('media/bginvert.webp');">Hello. Im am here for youl.<br>Clikc Clikc Clikc Clikc Clikc Clikc.<br>Clikc Clikc.<br>I like to think sometime s.<br>DRAW URSELF A PATH<br>STANDING ON TE BALCONYT<br>Sdssdsfaaawfaawwaw<br>Tss stss stss The Thoght And The The The Th<br>e The The The The sts<br>tsts tstst sts<br>SmokingS<br>t<br>t<br>t<br>t..................<br>I put it out on myslef<br>Oh.<br>Oh well.<br> Oh<br> It's bittersweet<br>&lt;3</div>
+</div>
+<canvas id="sss" style="width:50%;height:100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"></canvas>
+<marquee behavior="scroll" direction="left" style="position:absolute;bottom: 0;">
+    <img src="media/and.webp" height="255" style="filter: invert(100%);">
+</marquee>
+</body>
+
+<script>
+document.documentElement.style.filter = "invert(100%)";
+  const canvas = document.getElementById('sss');
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.src = 'media/cryidiot.webp';
+
+  img.onload = () => {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    animate();
+  };
+  
+  let time = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    time += 0.05;
+    for (let x = 0; x < img.width; x++) {
+      const offsetX = Math.sin((x / 80) + (time * .35)) * 20;
+      const offsetY = Math.cos((x / 90) + (time * .15)) * 50;
+      ctx.drawImage(
+        img,
+        x, 0, 1, img.height,
+        x + offsetX, offsetY, 1, img.height
+      );
+    }
+    requestAnimationFrame(animate);
+  }
+</script>
+<script>
+document.body.style.overflow = 'hidden';
+document.addEventListener('mousemove', function(e) {
+  const img = document.createElement('img');
+  img.src = 'media/fun.webp';
+ 
+  img.style.position = 'absolute';
+  img.style.left = e.pageX + 'px';
+  img.style.top = e.pageY + 'px';
+  
+  img.style.transform = 'translate(-50%, -50%)';
+  img.style.filter = "invert(100%)";
+  
+  document.body.appendChild(img);
+});
+</script>
+<script>
+const audio = new Audio('media/bsk.mp3');
+audio.loop = true;
+audio.play();
+window.scrollTo(0, 0);
+document.addEventListener("click", (event) => {
+    audio.loop = true;
+    audio.play();
+	window.scrollTo(0, 0);
+});
+</script>
