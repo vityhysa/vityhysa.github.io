@@ -22,9 +22,6 @@ html{scrollbar-color: red black}
 	-moz-osx-font-smoothing: unset;
 	text-rendering: optimizeSpeed;
 }
-img {
-  pointer-events: none;
-}
 </style>
 
 <head>
@@ -38,7 +35,7 @@ img {
 </div>
 <canvas id="sss" style="width:50%;height:100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"></canvas>
 <marquee behavior="scroll" direction="left" style="position:absolute;bottom: 0;">
-    <img src="media/and.webp" height="255" style="filter: invert(100%);">
+    <a href="andyouredead.html"><img src="media/and.webp" height="255" style="filter: invert(100%);"></a>
 </marquee>
 </body>
 
@@ -83,6 +80,7 @@ document.addEventListener('mousemove', function(e) {
   
   img.style.transform = 'translate(-50%, -50%)';
   img.style.filter = "invert(100%)";
+  img.style.pointerEvents = "none";
   
   document.body.appendChild(img);
 });
