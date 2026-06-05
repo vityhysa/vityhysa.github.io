@@ -92,10 +92,16 @@ img {
     let movespeed = 0.01;
     const textures = [];
 	
+	const footsteps = new Audio('media/footstep.mp3');
+    footsteps.loop = true;
+	footsteps.preservesPitch = false;
+	footsteps.playbackRate = 1.2;
+	
 	window.addEventListener('keydown', (event) => {
       if (event.code === 'Space') {
         spaceheld = true;
 		movespeed = 0.03;
+		footsteps.playbackRate = 2.9;
       }
     });
 
@@ -103,6 +109,7 @@ img {
       if (event.code === 'Space') {
         spaceheld = false;
 		movespeed = 0.01;
+		footsteps.playbackRate = 1.2;
       }
     });
 	
@@ -130,12 +137,12 @@ img {
         textures.push(img);
     });
 
-    const keys = { w: false, a: false, s: false, d: false };
+    const keys = { KeyW: false, KeyA: false, KeyS: false, KeyD: false };
     window.addEventListener('keydown', (e) => {
-        if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
+        if (keys.hasOwnProperty(e.code)) { keys[e.code] = true; footsteps.play(); }
     });
     window.addEventListener('keyup', (e) => {
-        if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+        if (keys.hasOwnProperty(e.code)) { keys[e.code] = false; footsteps.currentTime = 0; footsteps.pause(); }
     });
 
     document.addEventListener('click', () => {
@@ -154,10 +161,10 @@ img {
     function updplr() {
         let dx = 0;
         let dy = 0;
-        if (keys.w) { dx += Math.cos(playera) * movespeed; dy += Math.sin(playera) * movespeed; }
-        if (keys.s) { dx -= Math.cos(playera) * movespeed; dy -= Math.sin(playera) * movespeed; }
-        if (keys.a) { dx += Math.sin(playera) * movespeed; dy -= Math.cos(playera) * movespeed; }
-        if (keys.d) { dx -= Math.sin(playera) * movespeed; dy += Math.cos(playera) * movespeed; }
+        if (keys.KeyW) { dx += Math.cos(playera) * movespeed; dy += Math.sin(playera) * movespeed; }
+        if (keys.KeyS) { dx -= Math.cos(playera) * movespeed; dy -= Math.sin(playera) * movespeed; }
+        if (keys.KeyA) { dx += Math.sin(playera) * movespeed; dy -= Math.cos(playera) * movespeed; }
+        if (keys.KeyD) { dx -= Math.sin(playera) * movespeed; dy += Math.cos(playera) * movespeed; }
         if (map[Math.floor(playery)][Math.floor(playerx + dx)] === 0) playerx += dx;
         if (map[Math.floor(playery + dy)][Math.floor(playerx)] === 0) playery += dy;
     }
