@@ -1,0 +1,308 @@
+<style>
+html{scrollbar-color: red black}
+::-webkit-scrollbar {
+  width: 20px;
+    background-image:url('media/bg.webp');
+}
+::-webkit-scrollbar-track {
+  background-image:url('media/bg.webp');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image:url('media/bg.webp'); border: solid 1px red;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: solid 1px cyan;
+}
+* {
+    cursor: url('media/pointer.webp'), auto;
+	image-rendering: pixelated;
+	font-family:mingliu;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: unset;
+	text-rendering: optimizeSpeed;
+}
+</style>
+
+<head>
+<title>HAPPYMODD</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body style="background-color:black;">
+
+<canvas id="abroid" width="1920" height="1080" style="position: fixed;width: 100%;height: 100%;overflow: hidden;z-index:-65;"></canvas>
+<img src="media/vista.webp" style="position: fixed;width: 100%;height: 100%;overflow: hidden;z-index:-66;"></img>
+
+<div id="containor" style="position: fixed; width: 100%;height: 100%;overflow: hidden;pointer-events: none;z-index:66;">
+  <img id="imgss" src="media/apple.png" style="position: absolute;width: 150px;height: 80px;object-fit: contain;">
+</div>
+
+<div id="containor2" style="position: fixed; width: 100%;height: 100%;overflow: hidden;pointer-events: none;z-index:65;">
+  <img id="lololhi" src="media/happymod.webp" style="position: absolute;width: 150px;height: 150px;top: 650px;overflow: hidden;display: none;"></img>
+</div>
+
+<div style="color:red;text-align: center; font-size:10px;">
+<h1 style="font-size:60px;">Happymod The APK</h1>
+<h1>HappyMod is a third-party, community-driven app store for Android devices that offers modified (mod) versions of popular apps and games. It allows users to download APKs that typically include premium features unlocked, unlimited in-game currency, and removed advertisements.</h1>
+<h1>Instal Our Android The App.</h1>
+<img class="sinwave" src="media/androidapk.webp">
+<h1 style="font-size:60px;">Available On The:</h1>
+<h1>The Andtroid (Samsung)</h1>
+<img class="sinwave" src="media/androids.png">
+<h1>The Linux (Desktop)</h1>
+<img class="sinwave" src="media/linux.png">
+<h1>The Hack In the Tosh</h1>
+<img class="sinwave" src="media/hackintosh.png">
+<h1 style="font-size:60px;">Example of Built in Happymod the App Store.</h1>
+<h1>Floppy bird (CLIKC):</h1>
+<canvas id="floppy" width="400" height="400"></canvas>
+<h1>I Hope you enjoy showcase.</h1>
+<h1 style="font-size:60px;">downlod Idiot you are Download</h1>
+<a href="media/Happymod.zip" download="Happymod.zip"><img class="sinwave" src="media/download.webp"></a>
+<h1>^^^^^ CLIKC ^^^^^</h1>
+<h1>^^^^^ CLIKC ^^^^^</h1>
+<h1>^^^^^ CLIKC ^^^^^</h1>
+<h1>^^^^^ CLIKC ^^^^^</h1>
+<img class="sinwave" src="media/tex3.png">
+</div>
+
+</body>
+
+<script>
+const img = document.getElementById('imgss');
+const containor = document.getElementById('containor');
+let posx = 0;
+let posy = 100;
+let speedX = 15;
+let speedY = 15;
+
+function animate2() {
+  const containorw = containor.clientWidth;
+  const containorh = containor.clientHeight;
+  const imgw = img.clientWidth;
+  const imgh = img.clientHeight;
+  posx += speedX;
+  posy += speedY;
+
+  if (posx + imgw >= containorw || posx <= 0) {
+    speedX = -speedX;
+    posx = Math.max(0, Math.min(posx, containorw - imgw));
+  }
+  if (posy + imgh >= containorh || posy <= 0) {
+    speedY = -speedY;
+    posy = Math.max(0, Math.min(posy, containorh - imgh));
+  }
+
+  img.style.left = `${posx}px`;
+  img.style.top = `${posy}px`;
+  
+  setTimeout(() => {requestAnimationFrame(animate2);}, 100 / 2);
+}
+setTimeout(() => {requestAnimationFrame(animate2);}, 100 / 2);
+</script>
+
+<script>
+const ogimg = document.getElementById('lololhi');
+const speed = 5;
+const activeclones = [];
+function doclone() {
+    const clone = ogimg.cloneNode(true);
+    clone.id = '';
+    document.getElementById('containor2').appendChild(clone);
+
+    activeclones.push({
+        element: clone,
+        x: -100,
+        yvar: 15,
+        direction: -1
+    });
+}
+
+setInterval(doclone, 1000);
+
+function animate() {
+    for (let i = activeclones.length - 1; i >= 0; i--) {
+        const thething = activeclones[i];
+        thething.x += speed;
+		thething.yvar
+		thething.element.style.display = "block";
+
+        if (thething.direction === -1) {
+            thething.yvar -= 0.5;
+            if (thething.yvar <= 14 - 30) { 
+                thething.yvar = 15;
+            }
+        }
+
+        thething.element.style.left = `${thething.x}px`;
+		const currentvar = parseInt(thething.element.style.top, 10) || 0;
+        thething.element.style.top = ((currentvar) + (thething.yvar * -1)) + "px"; 
+
+        if (thething.x > window.innerWidth) {
+            thething.element.remove();
+            activeclones.splice(i, 1);
+        }
+    }
+    setTimeout(() => {requestAnimationFrame(animate);}, 100 / 7);
+}
+setTimeout(() => {requestAnimationFrame(animate);}, 100 / 7);
+</script>
+
+<script>
+const canvas = document.getElementById("floppy");
+const ctx = canvas.getContext("2d");
+let plry = 300;
+let plrx = 50;
+let velocity = 0;
+const gravity = 0.4;
+const jump = -7;
+const plrsize = 20;
+let pipes = [];
+const pipewid = 60;
+const pipegap = 150;
+const pipespeed = 2.5;
+let frcount = 0;
+let youdied = false;
+
+canvas.addEventListener("click", () => {
+    if (youdied) {
+        resety();
+    } else {
+        velocity = jump;
+    }
+	const audio = new Audio('media/coolclick.ogg');
+    audio.play();
+});
+
+function resety() {
+    plry = 300;
+    velocity = 0;
+    pipes = [];
+    frcount = 0;
+    youdied = false;
+}
+
+function dopipe() {
+    const minhe = 50;
+    const maxhe = canvas.height - pipegap - minhe;
+    const tophe = Math.floor(Math.random() * (maxhe - minhe + 1)) + minhe;
+    pipes.push({
+        x: canvas.width,
+        top: tophe,
+        bottom: canvas.height - tophe - pipegap
+    });
+}
+
+function update() {
+    if (youdied) return;
+    velocity += gravity;
+    plry += velocity;
+    if (plry + plrsize > canvas.height || plry - plrsize < 0) {
+        youdied = true;
+    }
+    if (frcount % 100 === 0) {
+        dopipe();
+    }
+    frcount++;
+    for (let i = pipes.length - 1; i >= 0; i--) {
+        pipes[i].x -= pipespeed;
+        if (
+            plrx + plrsize > pipes[i].x &&
+            plrx - plrsize < pipes[i].x + pipewid &&
+            (plry - plrsize < pipes[i].top || plry + plrsize > canvas.height - pipes[i].bottom)
+        ) {
+            youdied = true;
+        }
+        if (pipes[i].x + pipewid < 0) {
+            pipes.splice(i, 1);
+        }
+    }
+}
+const imgfloppybird = new Image();
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00ff00";
+    pipes.forEach(pipe => {
+        ctx.fillRect(pipe.x, 0, pipewid, pipe.top);
+        ctx.fillRect(pipe.x, canvas.height - pipe.bottom, pipewid, pipe.bottom);
+    });
+
+    ctx.fillStyle = "#ffff00";
+    ctx.beginPath();
+	imgfloppybird.onload = function() {
+    ctx.drawImage(imgfloppybird, plrx - plrsize, plry - plrsize, plrsize * 2, plrsize * 2);
+	};
+	ctx.drawImage(imgfloppybird, plrx - plrsize, plry - plrsize, plrsize * 2, plrsize * 2);
+    ctx.fill();
+}
+imgfloppybird.src = 'media/face1.png';
+
+function loop() {
+    update();
+    draw();
+    setTimeout(() => {requestAnimationFrame(loop);}, 100 / 7);
+}
+setTimeout(() => {requestAnimationFrame(loop);}, 100 / 7);
+</script>
+
+<script>
+  const canvas2 = document.getElementById('abroid');
+  const ctx2 = canvas2.getContext('2d');
+  const imgeffect = new Image();
+  imgeffect.src = 'media/vista.webp';
+
+  imgeffect.onload = () => {
+    canvas2.width = imgeffect.width;
+    canvas2.height = imgeffect.height;
+    animateeffect();
+  };
+  
+  let time = 0;
+  function animateeffect() {
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+    time += 0.05;
+    for (let x = 0; x < imgeffect.width; x++) {
+      const offsetX = Math.sin((x / 51) + (time * 0.5)) * 55;
+      const offsetY = Math.cos((x / 51) + (time * 1)) * 1;
+      ctx2.drawImage(
+        imgeffect,
+        x, 0, 1, imgeffect.height,
+        x + offsetX, offsetY, 1, imgeffect.height
+      );
+    }
+    requestAnimationFrame(animateeffect);
+  }
+</script>
+
+<script>
+const imgssin = document.querySelectorAll('.sinwave');
+const freq = 0.05;
+const amp = 0.2;
+const basescale = 1;
+let angle = 0;
+
+imgssin.forEach(imgonesin => {
+function animatesin() {
+  const scaleX = basescale + Math.sin(angle) * amp;
+  const scaleY = basescale + Math.cos(angle) * amp;
+  imgonesin.style.transform = `scale(${scaleX}, ${scaleY})`;
+  angle += freq;
+  setTimeout(() => {requestAnimationFrame(animatesin);}, 100 / 1);
+}
+setTimeout(() => {requestAnimationFrame(animatesin);}, 100 / 1);
+});
+</script>
+
+<script>
+const songs = new Audio('media/splas.mp3');
+songs.loop = true;
+songs.play();
+document.addEventListener("click", (event) => {
+    songs.loop = true;
+    songs.play();
+});
+</script>
