@@ -29,21 +29,21 @@ img {
 
 <head>
 <title>Garismod</title>
-<body style="background-image:url('media/garismod.webp');background-color:black;">
+<body style="background-image:url('media/garismod.webp');background-color:black;background-size: 5%">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
 <div style="color:red;text-align: center; font-size:10px;">
 <h1 style="font-size:64;color:red;text-align: center;word-wrap: break-word;background-color:black;">Install the Free Garismod. Half- liefe 2 mod!</h1>
-<img style="max-width: 30%; max-height: 30%;" src="media/scr1.webp">
-<img style="max-width: 30%; max-height: 30%;" src="media/scr2.webp">
-<img style="max-width: 30%; max-height: 30%;" src="media/scr3.webp">
-<a href="" download="" style="text-decoration: none; color: black;"><h1 style="font-size:20;color:lime;text-align: center;word-wrap: break-word;background-color:black;">Download Garismod for Windows [x86_64] (NOT AVAILABLE YET)</h1></a>
-<a href="" download="" style="text-decoration: none; color: black;"><h1 style="font-size:20;color:lime;text-align: center;word-wrap: break-word;background-color:black;">Download Garismod for MacOS [x86_64 and arm64] (NOT AVAILABLE YET)</h1></a>
-<a href="" download="" style="text-decoration: none; color: black;"><h1 style="font-size:20;color:lime;text-align: center;word-wrap: break-word;background-color:black;">Download Garismod for Linux [x86_64] (Or, If you want, Download the Windows ver and Run it through Wine) (NOT AVAILABLE YET)</h1></a>
+<img class="sinwave" style="max-width: 30%; max-height: 30%;" src="media/scr1.webp">
+<img class="sinwave" style="max-width: 30%; max-height: 30%;" src="media/scr2.webp">
+<img class="sinwave" style="max-width: 30%; max-height: 30%;" src="media/scr3.webp">
+<a href="" download=""><h1 style="font-size:20;color:lime;text-align: center;word-wrap: break-word;background-color:black;">Download Garismod for Windows [x86_64] (NOT AVAILABLE YET)</h1></a>
+<a href="" download=""><h1 style="font-size:20;color:lime;text-align: center;word-wrap: break-word;background-color:black;">Download Garismod for MacOS [x86_64 and arm64] (NOT AVAILABLE YET)</h1></a>
+<a href="" download=""><h1 style="font-size:20;color:lime;text-align: center;word-wrap: break-word;background-color:black;">Download Garismod for Linux [x86_64] (Or, If you want, Download the Windows ver and Run it through Wine) (NOT AVAILABLE YET)</h1></a>
 <h1 style="font-size:64;color:red;text-align: center;word-wrap: break-word;background-color:black;">v README NOTE v</h1>
-<pre style="color:white;font-size:20px;background-color:black;">
+<pre id="funnytexts" style="color:white;font-size:20px;background-color:black;white-space: pre-wrap; overflow-wrap: break-word;">
 CONTAINS FLASHING LIGHTS AND MAY CAUSE MOTION SICKNESS (Also May have Self-harm topic)
 NOT AFFILIATED WITH ANYONE OR ANYTHING MENTIONED
 
@@ -82,6 +82,48 @@ Thx for Plaing
 
 vityhysa.github.io
 </pre>
-<button style="font-size:32" onclick="window.location.href='talkerings.html';">Report Bugs & Ask Questions</button>
+<button class="sinwave" style="font-size:20;background-color: black;color: white" onclick="window.location.href='talkerings.html';">Report Bugs & Ask Questions</button>
 </div>
 </body>
+
+<script>
+const imgssin = document.querySelectorAll('.sinwave');
+const freq = 0.005;
+const amp = 0.05;
+const basescale = 1;
+let angle = 0;
+
+imgssin.forEach(imgonesin => {
+function animatesin() {
+  const scaleX = basescale + Math.sin(angle) * amp;
+  const scaleY = basescale + Math.cos(angle) * amp;
+  imgonesin.style.transform = `scale(${scaleX}, ${scaleY})`;
+  angle += freq;
+  requestAnimationFrame(animatesin);
+}
+requestAnimationFrame(animatesin);
+});
+</script>
+
+<script>
+const element = document.getElementById("funnytexts");
+const text = element.innerText;
+function hahaafadfsd() {
+    let result = "";
+    for (let i = 0; i < text.length; i++) {
+        let char = text[i];
+        if (char === " ") {
+            result += " ";
+            continue;
+        }
+        if (Math.random() > 0.5) {
+            result += char.toUpperCase();
+        } else {
+            result += char.toLowerCase();
+        }
+    }
+    element.innerText = result;
+}
+setInterval(hahaafadfsd, 150);
+</script>
+
